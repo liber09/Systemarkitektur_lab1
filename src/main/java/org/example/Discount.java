@@ -1,6 +1,7 @@
 package org.example;
 
 public interface Discount {
-    public void apply(Product product);
-    public String getDescription(Product product);
+    void apply(Product product, String additionalInfo);
+
+    String getDescription(Product product);
 }

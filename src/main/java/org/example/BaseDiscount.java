@@ -2,9 +2,10 @@ package org.example;
 
 public abstract class BaseDiscount implements Discount{
 
-    private Discount nextDiscount;
+    public BaseDiscount(Discount nextDiscount){
+    }
     @Override
-    public void apply(Product product) {
+    public void apply(Product product, String additionalInfo) {
 
     }
 
