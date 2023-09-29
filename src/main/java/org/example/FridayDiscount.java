@@ -1,5 +1,7 @@
 package org.example;
 
+import java.time.LocalDate;
+
 public class FridayDiscount extends BaseDiscount{
     public FridayDiscount(Discount nextDiscount) {
         super(nextDiscount);
@@ -7,7 +9,7 @@ public class FridayDiscount extends BaseDiscount{
 
     @Override
     public boolean isApplicable(Product product) {
-        return false;
+        return LocalDate.now().getDayOfWeek().getValue() == 5;
     }
 
     @Override

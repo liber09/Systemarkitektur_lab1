@@ -7,7 +7,7 @@ public class QuantityDiscount extends BaseDiscount{
 
     @Override
     public boolean isApplicable(Product product) {
-        return false;
+        return product.count() > 4;
     }
 
     @Override

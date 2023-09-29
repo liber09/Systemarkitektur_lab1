@@ -7,11 +7,12 @@ public class MilkDiscount extends BaseDiscount{
 
     @Override
     public boolean isApplicable(Product product) {
-        return false;
+        return product.name().equalsIgnoreCase("milk");
     }
 
     @Override
     public double calculateDiscount(Product product) {
+
         return 0;
     }
 }
