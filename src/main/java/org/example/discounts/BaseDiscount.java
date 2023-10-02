@@ -21,16 +21,20 @@ public abstract class BaseDiscount implements Discount{
         ArrayList<String> discounts = new ArrayList<>();
         String discountString = "";
         if (isApplicable(product)){
+            if(discounts.contains("There are no discounts on this product")){
+                discounts.remove("There are no discounts on this product");
+            }
             discounts.add(this.getClass().getSimpleName());
         }
         if (nextDiscount != null){
             discounts.add(nextDiscount.getDescription(product));
         }
-        if (discounts.isEmpty()){
-            return "There are no discounts on these products";
-        }else{
+        if (!discounts.isEmpty()){
             for(int i=0; i<discounts.size(); i++){
                 discountString = String.join(", ", discounts);
+            }
+            if(discountString.isEmpty()){
+                return "There are no discounts on this product";
             }
         }
         return discountString;
