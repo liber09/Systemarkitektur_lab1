@@ -1,5 +1,7 @@
 package org.example;
 
+import org.example.product.Product;
+
 import java.util.ArrayList;
 
 public class App {
