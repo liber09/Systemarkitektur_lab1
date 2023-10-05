@@ -1,12 +1,14 @@
 package org.example.discounts;
 
+import org.example.interfaces.Discount;
 import org.example.product.Product;
 
 import java.util.ArrayList;
 
-public abstract class BaseDiscount implements Discount{
+public abstract class BaseDiscount implements Discount {
 
     protected final Discount nextDiscount;
+    protected String descripion;
 
     protected abstract boolean isApplicable(Product product);
 
@@ -21,9 +23,6 @@ public abstract class BaseDiscount implements Discount{
         ArrayList<String> discounts = new ArrayList<>();
         String discountString = "";
         if (isApplicable(product)){
-            if(discounts.contains("There are no discounts on this product")){
-                discounts.remove("There are no discounts on this product");
-            }
             discounts.add(this.getClass().getSimpleName());
         }
         if (nextDiscount != null){
@@ -33,9 +32,9 @@ public abstract class BaseDiscount implements Discount{
             for(int i=0; i<discounts.size(); i++){
                 discountString = String.join(", ", discounts);
             }
-            if(discountString.isEmpty()){
-                return "There are no discounts on this product";
-            }
+            //if(discountString.isEmpty()){
+            //    return "There are no discounts on this product";
+            //}
         }
         return discountString;
     }

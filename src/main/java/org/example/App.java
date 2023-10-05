@@ -1,6 +1,7 @@
 package org.example;
 
-import org.example.discounts.Discount;
+import org.example.discounts.CustomDiscount;
+import org.example.interfaces.Discount;
 import org.example.discounts.FridayDiscount;
 import org.example.discounts.MilkDiscount;
 import org.example.discounts.QuantityDiscount;
@@ -15,9 +16,11 @@ public class App {
         Discount milkDiscount = new MilkDiscount(fridayDiscount);
         Discount quantityDiscount = new QuantityDiscount(milkDiscount);
 
-        printResult(products, quantityDiscount);
+        Discount customDiscount = new CustomDiscount(quantityDiscount,"10% off on cheese",
+                product -> product.name().equalsIgnoreCase("CHEESE"),
+                product -> product.price()*0.1);
 
-
+        printResult(products, customDiscount);
     }
 
     private static ArrayList<Product> createProducts(){

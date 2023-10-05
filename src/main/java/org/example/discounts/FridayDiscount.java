@@ -1,5 +1,6 @@
 package org.example.discounts;
 
+import org.example.interfaces.Discount;
 import org.example.product.Product;
 
 import java.time.LocalDate;
